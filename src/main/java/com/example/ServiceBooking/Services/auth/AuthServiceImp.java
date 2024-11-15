@@ -30,4 +30,23 @@ public class AuthServiceImp implements AuthService {
 		return userRepo.save(user).getDto();
 		
 	}
+	
+	
+	public UserDto signupSeller(SignupRequestDto request) {
+		User user = new User();
+		user.setName(request.getName());
+		user.setEmail(request.getEmail());
+		user.setPhone(request.getPhone());
+		user.setPassword(request.getPassword());
+		
+		user.setRole(UserRole.SELLER);
+		
+		return userRepo.save(user).getDto();
+		
+	}
+	
+	
+	public Boolean presentByEmail(String email) {
+		return userRepo.findFirstByEmail(email)!=null;
+	}
 }

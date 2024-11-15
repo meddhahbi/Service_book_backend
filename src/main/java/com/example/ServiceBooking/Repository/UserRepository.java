@@ -7,5 +7,7 @@ import com.example.ServiceBooking.Entity.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long>{
+	
+	User findFirstByEmail(String email);
 
 }
